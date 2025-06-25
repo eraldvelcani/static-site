@@ -31,7 +31,7 @@ def block_to_block_type(markdown):
         return BlockType.QUOTE
     elif all(line.startswith('- ') for line in mark):
         return BlockType.UNORDERED_LIST
-    elif block.startswith('1. '):
+    elif markdown.startswith('1. '):
         i = 1
         for line in mark:
             if not line.startswith(f"{i}. "):
@@ -58,9 +58,9 @@ def block_to_html_node(block):
         return heading_to_html_node(block)
     if block_type == BlockType.CODE:
         return code_to_html_node(block)
-    if block_type == BlockType.OLIST:
+    if block_type == BlockType.ORDERED_LIST:
         return olist_to_html_node(block)
-    if block_type == BlockType.ULIST:
+    if block_type == BlockType.UNORDERED_LIST:
         return ulist_to_html_node(block)
     if block_type == BlockType.QUOTE:
         return quote_to_html_node(block)
