@@ -14,7 +14,7 @@ def main():
     if len(sys.argv) > 1:
         basepath = sys.argv[1]
 
-    static_to_public("/home/erald/static-site/static", "/home/erald/static-site/public")
+    static_to_public("/home/erald/static-site/static", "/home/erald/static-site/docs")
     
     if os.path.exists("./docs"):
         print('Deleting public dir...')
